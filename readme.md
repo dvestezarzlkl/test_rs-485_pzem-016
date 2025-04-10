@@ -86,3 +86,15 @@ Tento projekt je dostupný pod licencí **MIT**.
 - Měřiče musí být správně připojené přes RS-485 (a galvanicky oddělené, pokud je to potřeba).
 - Pro komunikaci je potřeba koncový odpor (120Ω) na sběrnici.
 - Pokud používáš USB-RS485 převodník, ujisti se, že používá správné řízení RE/DE (např. přes auto-flow).
+
+## Testováno na:
+
+```txt
+Systémové informace
+----------------------------
+OS: Windows 10 (build 10.0.22631)
+Platforma: Windows-10-10.0.22631-SP0
+Python: 3.10.6 (64bit)
+Procesor: AMD64 Family 25 Model 33 Stepping 2, AuthenticAMD
+Architektura OS: 64-bit
+```

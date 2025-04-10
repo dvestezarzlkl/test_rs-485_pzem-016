@@ -1,9 +1,8 @@
 #!/usr/bin/env python3
 
-import argparse
-import json
+import argparse,json,sys
 from lib import pzem016
-from lib.pzem016 import registers as reg
+from lib.helper import print_system_info
 
 def main():
     parser = argparse.ArgumentParser(
@@ -18,6 +17,7 @@ def main():
     parser.add_argument("-p", "--port", type=str, help="Název sériového portu (např. COM3 nebo /dev/ttyUSB0)")
     parser.add_argument("-b", "--baud", type=int, help="Baud rate (např. 9600)")
     parser.add_argument("--debug", action="store_true", help="Zapnout debug výstup")
+    parser.add_argument("--sysinfo", action="store_true", help="Vytisknout informace o systému")
 
     subparsers = parser.add_subparsers(dest="command", help="Příkazy")
 
@@ -40,6 +40,10 @@ def main():
         pzem016.port = args.port
     if args.baud:
         pzem016.baudRate = args.baud
+    if args.sysinfo:
+        print_system_info()
+        sys.exit(0)
+        
 
     # Vytvoření instance měřiče
     meter = pzem016.masterData()

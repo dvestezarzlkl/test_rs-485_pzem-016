@@ -1,4 +1,5 @@
-
+import platform
+import sys
 
 def bytePrint(data:bytearray)->str:
     """Convert bytearray to hex string representation
@@ -31,3 +32,13 @@ def getCrc(data:bytearray)->tuple:
             else:
                 crc >>= 1
     return (crc & 0xFF, (crc >> 8) & 0xFF)
+
+def print_system_info():
+    print("Systémové informace")
+    print("----------------------------")
+    print(f"OS: {platform.system()} {platform.release()} (build {platform.version()})")
+    print(f"Platforma: {platform.platform()}")
+    print(f"Python: {platform.python_version()} ({platform.architecture()[0]})")
+    print(f"Procesor: {platform.processor()}")
+    print(f"Architektura OS: {'64-bit' if sys.maxsize > 2**32 else '32-bit'}")
+    print()
